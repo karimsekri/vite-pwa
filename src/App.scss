@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+}
+
+.game_container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 1px solid white;
+
+  .game_nbreClic{
+    position : absolute;
+    top : 10%;
+    left : 90%;
+  }
+
+  .compteurTemps{
+    position : absolute;
+    top : 10%;
+    left : 80%;
+  }
+
+  .game {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;  
+  }
+
+}
+
+
+
