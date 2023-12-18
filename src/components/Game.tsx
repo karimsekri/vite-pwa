@@ -2,7 +2,7 @@ import { useCallback, useEffect,  useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 
-const son = new Audio('./public/son.wav');
+const son = new Audio('/son.wav');
 
 const Game = () => {
     const [nbreClic, setnbreClic] = useState(0)
@@ -28,7 +28,7 @@ const Game = () => {
         son.currentTime = 0
         son.play()
 
-        window.navigator.vibrate(100)
+        window.navigator.vibrate([1000,100,1000])
 
         const elapsedTime = Date.now() - tempsDebut
         if (nbreClic === 2) {
