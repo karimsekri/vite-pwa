@@ -22,6 +22,20 @@ const Game = () => {
         setIntervalId(id)
     }, []);
 
+    const showNotification = useCallback(() => {
+
+        Notification.requestPermission().then(function (result) {
+            console.log(result);
+            if (result === 'granted') {
+                const maNotification = new Notification('Partie terminée', {
+                    body: `Ceci est une notification`
+                });
+              console.log(maNotification);  
+            }
+          });
+       
+    },[]);
+
     const incrementerConteurcompteur = useCallback(() => {
         
         son.pause()
@@ -30,10 +44,13 @@ const Game = () => {
 
         window.navigator.vibrate([1000,100,1000])
 
+
         const elapsedTime = Date.now() - tempsDebut
         if (nbreClic === 2) {
             clearInterval(intervalId!)
+            showNotification()
             navigate("/end/" + elapsedTime)
+            
         }
         else {
             let topCss = Math.floor(Math.random() * (90));  
@@ -42,7 +59,7 @@ const Game = () => {
             setLeft(leftCss)
             setnbreClic(nbreClic + 1)
         }
-    }, [top, left, nbreClic]);
+    }, [top, left, nbreClic,showNotification]);
 
     return (
         <div className="game_container">
