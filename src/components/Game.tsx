@@ -25,12 +25,14 @@ const Game = () => {
     const showNotification = useCallback(() => {
 
         Notification.requestPermission().then(function (result) {
-            console.log(result);
+          
             if (result === 'granted') {
                 const maNotification = new Notification('Partie terminée', {
                     body: `Ceci est une notification`
                 });
-              console.log(maNotification);  
+                console.log(maNotification);
+
+             
             }
           });
        
